@@ -1,4 +1,4 @@
-# Install script for directory: D:/studia/V sem/pea
+# Install script for directory: D:/studia/V sem/pea/zadanie1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/studia/V sem/pea/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/studia/V sem/pea/zadanie1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

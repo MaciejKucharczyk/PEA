@@ -10,17 +10,17 @@ using namespace std;
 
 class Branch_Bound {
 public:
-    int final_res = INT_MAX;
-    vector<int> final_path;
+    static int final_res;
+    static vector<int> final_path;
     static vector<bool> visited;
     static void branch_bound(vector<vector<int>>, int);
     //void reduction(vector<vector<int>>);
-    int find_min(vector<vector<int>>, int);
-    void copyToFinal(vector<int> m);
+    static int find_min(vector<vector<int>>, int);
+    static void copyToFinal(vector<int> m);
 
-    int findSecMin(vector<vector<int>>, int);
+    static int findSecMin(vector<vector<int>>, int);
 
-    void TSPRec(vector<vector<int>> tab, int curr_bound, int curr_weight, int level, vector<int> path);
+    static void TSPRec(vector<vector<int>> tab, int curr_bound, int curr_weight, int level, vector<int> path);
 };
 
 #endif //PEA_BRANCH_BOUND_H

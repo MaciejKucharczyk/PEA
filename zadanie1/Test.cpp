@@ -20,11 +20,12 @@ void Test::test_BF()
         for(int j=0; j<100; j++)
         {
             test_m = m.generate_matrix(size);
+            // TODO: czas (chrono) lub coś innego
             // czas start
             //
             b.shortest_path(test_m, size);
             //czas stop
-            //zapis do CSV czy cos
+            // TODO: zapis do CSV czy cos (fstream)
         }
     }
 

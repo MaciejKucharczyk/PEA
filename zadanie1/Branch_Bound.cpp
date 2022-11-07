@@ -96,6 +96,7 @@ void Branch_Bound::TSPRec(vector<vector<int>> tab, int curr_bound, int curr_weig
 
 void Branch_Bound::branch_bound(vector<vector<int>> macierz, int rozmiar)
 {
+    final_res = INT_MAX;
     vector<vector<int>> matrix = macierz;
     //static vector<int> final_path;
     visited.resize(macierz.size());
