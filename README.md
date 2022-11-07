@@ -6,5 +6,5 @@ Zadanie 1: rozwiązanie problemu Komiwojażera (TSP) metodami:
   - Branch & Bound (B & B)
   
   
-* Gotowy projekt w gałęzi main *
-* Master jako gałąź testowa *
+*Gotowy projekt w gałęzi main*
+*Master jako gałąź testowa*
