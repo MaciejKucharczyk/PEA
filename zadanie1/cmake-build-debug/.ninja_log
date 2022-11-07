@@ -1,0 +1,14 @@
+# ninja log v5
+4	505	6894546397935976	CMakeFiles/pea.dir/main.cpp.obj	3342e5d47b5ecb43
+20	590	6893709718638872	CMakeFiles/pea.dir/M_Generator.cpp.obj	534492ed3e7a350e
+18	1413	6894546407010387	CMakeFiles/pea.dir/Brute_force.cpp.obj	c7f4600656647c0c
+1413	1629	6894546409146780	pea.exe	2f88e86ba9aa4930
+34	1377	6881703135807023	CMakeFiles/pea.dir/file-conversion.cpp.obj	bc34c39950b9d278
+9	1009	6879132419923360	CMakeFiles/pea.dir/interface.cpp.obj	9657d4d9fe20bacc
+16	685	6894470715670238	CMakeFiles/pea.dir/matrix.cpp.obj	19fe0d497894650a
+15	772	6881707977096911	CMakeFiles/pea.dir/file-converter.cpp.obj	3296cc4fab47b95d
+28	618	6893709718978742	CMakeFiles/pea.dir/Test.cpp.obj	82aea9ae63a69387
+41	1958	6894832384229275	CMakeFiles/pea.dir/Test.cpp.obj	82aea9ae63a69387
+11	1972	6894832384276342	CMakeFiles/pea.dir/main.cpp.obj	3342e5d47b5ecb43
+18	1556	6894832532411482	CMakeFiles/pea.dir/main.cpp.obj	3342e5d47b5ecb43
+9	1214	6894833044814330	CMakeFiles/pea.dir/main.cpp.obj	3342e5d47b5ecb43
