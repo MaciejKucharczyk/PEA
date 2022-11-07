@@ -4,3 +4,7 @@ Zadanie 1: rozwiązanie problemu Komiwojażera (TSP) metodami:
   - programowania dynamicznego
   - przeglądu zupełnego (Brute Force)
   - Branch & Bound (B & B)
+  
+  
+* Gotowy projekt w gałęzi main *
+* Master jako gałąź testowa *
