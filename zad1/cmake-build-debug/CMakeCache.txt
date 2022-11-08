@@ -151,7 +151,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=pea
+CMAKE_PROJECT_NAME:STATIC=zad1
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2022.1.2/bin/mingw/bin/ranlib.exe
@@ -241,6 +241,15 @@ pea_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 pea_SOURCE_DIR:STATIC=D:/studia/V sem/pea/zadanie1
+
+//Value Computed by CMake
+zad1_BINARY_DIR:STATIC=D:/studia/V sem/pea/zadanie1/cmake-build-debug
+
+//Value Computed by CMake
+zad1_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+zad1_SOURCE_DIR:STATIC=D:/studia/V sem/pea/zadanie1
 
 
 ########################
