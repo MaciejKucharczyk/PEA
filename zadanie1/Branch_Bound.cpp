@@ -64,7 +64,7 @@ void Branch_Bound::TSPRec(vector<vector<int>> tab, int curr_bound, int curr_weig
 
     for(int i = 0; i<tab.size(); i++)
     {
-        int temp;
+        int temp=0;
         if(tab[path[level-1]][i]!=0 && visited[i]==false)
         {
             temp = curr_bound;
