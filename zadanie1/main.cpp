@@ -2,7 +2,7 @@
 #include "matrix.h"
 #include "Brute_force.h"
 #include "Test.h"
-//#include "Branch_Bound.h"
+#include "Branch_Bound.h"
 
 using namespace std;
 
@@ -43,7 +43,8 @@ void choose_option(Matrix macierz)
 
             case 3:
                 // B&B
-               // Branch_Bound::branch_bound(macierz.return_matrix(), SIZE);
+                Branch_Bound bb;
+                bb.TSP(macierz.return_matrix());
                 break;
 
             case 4: //dynamiczne
