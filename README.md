@@ -1,7 +1,6 @@
 # PEA
 ## Projekt z Projektowania Efektywnych Algorytmów, 5 semestr
 Zadanie 1: rozwiązanie problemu Komiwojażera (TSP) metodami:
-  - programowania dynamicznego
   - przeglądu zupełnego (Brute Force)
   - Branch & Bound (B & B)
   
@@ -10,7 +9,6 @@ Zadanie 1: rozwiązanie problemu Komiwojażera (TSP) metodami:
 *Master jako gałąź testowa*
 
 Task 1: Find the best solution for Travelling Salesman Problem with these algorithms:
-- dynamic programming
 - Brute Force
 - Branch & Bound
 
