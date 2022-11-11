@@ -6,8 +6,11 @@
 
 using namespace std;
 
-#define NAME    "test4.txt"
-#define SIZE    4
+//#define NAME    "tsp_17.txt"
+//#define SIZE    17
+
+int size_of_m=0;
+string filename;
 
 void print_options()
 {
@@ -23,7 +26,7 @@ void print_options()
 
 void choose_option(Matrix macierz)
 {
-    Branch_Bound bb(SIZE);
+    Branch_Bound bb;
     int opt=0;
     do
     {
@@ -32,16 +35,19 @@ void choose_option(Matrix macierz)
         switch(opt)
         {
             case 1: // wczytywanie danych z pliku
-                macierz.read_from_file(NAME);
+                cout<<"Wprowadz nazwe pliku: \n";
+                cin>>filename;
+                macierz.read_from_file(filename);
                 break;
 
             case 2: // przeglad zupelny BF
-                Brute_force::shortest_path(macierz.return_matrix(), SIZE);
+                Brute_force::shortest_path(macierz.return_matrix(), size_of_m);
                 break;
 
             case 3:
                 // B & B
-               bb.TSP(macierz.return_matrix());
+                bb.setSize(size_of_m);
+                bb.TSP(macierz.return_matrix());
                 break;
 
             case 4: //wyswietlanie macierzy
@@ -64,6 +70,6 @@ void choose_option(Matrix macierz)
 
 int main()
 {
-    Matrix macierz(SIZE);
+    Matrix macierz;
     choose_option(macierz);
 }

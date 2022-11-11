@@ -7,11 +7,15 @@
 
 using namespace std;
 
-Branch_Bound::Branch_Bound(int size)
+Branch_Bound::Branch_Bound()
+{
+    rozwiazanie = INT_MAX;
+}
+
+void Branch_Bound::setSize(int size)
 {
     path.resize(size + 1);
     visited.resize(size);
-    rozwiazanie = INT_MAX;
 }
 
 Branch_Bound::~Branch_Bound(){}
@@ -110,7 +114,8 @@ void Branch_Bound::CheckLevel(vector<vector<int>>& matrix, int galaz, int koszt,
 void Branch_Bound::TSP(vector<vector<int>> matrix)
 {
     int size = matrix.size();
-    Branch_Bound BandB(size);
+    Branch_Bound BandB;
+    BandB.setSize(size);
     int start = 0;
     static vector<int> droga;
     droga.resize(size + 1);
@@ -126,5 +131,5 @@ void Branch_Bound::TSP(vector<vector<int>> matrix)
 
     CheckLevel(matrix, galaz, 0, 1, droga, BandB, BandB.rozwiazanie, BandB.visited, BandB.path);
     //BandB.path = droga;
-    BandB.print_result(BandB.rozwiazanie, BandB.path);
+    //BandB.print_result(BandB.rozwiazanie, BandB.path);
 }

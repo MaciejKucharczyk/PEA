@@ -9,10 +9,14 @@
 
 using namespace std;
 
-Matrix::Matrix(int s)
+Matrix::Matrix()
+{
+}
+
+void Matrix::set_size(int s)
 {
     size = s;
-    matrix.resize(size);
+    matrix.resize(s);
 }
 
 Matrix::~Matrix()
@@ -31,6 +35,7 @@ void Matrix::read_from_file(string filename)
     if(file.is_open())
     {
         file >> size;
+        matrix.resize(size);
         if(file.fail())
             cout << "File error - READ SIZE" << endl;
         else

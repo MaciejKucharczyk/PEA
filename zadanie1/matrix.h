@@ -16,12 +16,13 @@ private:
     //int* stos = new int[size];
 public:
     int size=0;
-    Matrix(int s);
+    Matrix();
     ~Matrix();
     vector<vector<int>> return_matrix();
     void read_from_file(string filename);
     void print_matrix();
 
+    void set_size(int s);
 };
 
 /*vector<vector<int>> make_matrix(int size);

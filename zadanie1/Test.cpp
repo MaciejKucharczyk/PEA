@@ -9,8 +9,8 @@
 #include <chrono>
 #include <fstream>
 
-#define filename1    "BRUTE force.csv"
-#define filename2    "BRANCH bound.csv"
+#define filename1    "BRUTE 22force.csv"
+#define filename2    "BRANCH 22bound.csv"
 
 void Test::test_BF()
 {
@@ -24,8 +24,8 @@ void Test::test_BF()
     for(int i=0; i<7; i++)
     {
         float avg=0;
-        int size = i+4; // zaczynamy od rozmiaru 3, konczymy na 10
-        file << endl << "ROZMIAR "<<i+4<< endl;
+        int size = i+6; // zaczynamy od rozmiaru 6, konczymy na 13
+        file << endl << "ROZMIAR "<<i+6<< endl;
         for(int j=0; j<100; j++)
         {
             // generowanie losowej macierzy
@@ -51,7 +51,7 @@ void Test::test_BF()
             b.shortest_path(test_m, size);
             auto t2 = std::chrono::high_resolution_clock::now();
             //czas stop
-            avg+= std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
+            avg+= std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
         }
         cout<<"Rozmiar: "<<size<<"    sredni czas:"<<avg<<endl;
         file << avg << endl;
@@ -70,8 +70,8 @@ void Test::test_BB()
     for(int i=0; i<7; i++)
     {
         float avg=0;
-        int size = i+4; // zaczynamy od rozmiaru 4, konczymy na 11
-        file << endl << "ROZMIAR "<<i+4<< endl;
+        int size = i+6; // zaczynamy od rozmiaru 6, konczymy na 13
+        file << endl << "ROZMIAR "<<i+6<< endl;
 
         for(int j=0; j<100; j++)
         {
@@ -92,14 +92,15 @@ void Test::test_BB()
                     }
                 }
             }
-            Branch_Bound bb(size);
+            Branch_Bound bb;
+            bb.setSize(size);
             // czas start
             auto t1 = std::chrono::high_resolution_clock::now(); // czas start
             bb.TSP(test_m);
             //czas stop
             auto t2 = std::chrono::high_resolution_clock::now();
             // TODO: zapis do CSV (fstream)
-            avg+=std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
+            avg+=std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
         }
         cout<<"Rozmiar: "<<size<<"    sredni czas:"<<avg<<endl;
         file << avg << endl;

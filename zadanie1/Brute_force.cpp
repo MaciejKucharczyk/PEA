@@ -49,9 +49,9 @@ void Brute_force::shortest_path(vector<vector<int>> macierz, int rozmiar)
               //  path.push_back(city);
         }
     }
-    cout<<"Koszt najkorzystniejszej drogi: "<<shortest_path<<endl;
+   /* cout<<"Koszt najkorzystniejszej drogi: "<<shortest_path<<endl;
     cout<<"Droga: "<<endl<<0; //wyswietlamy zero, poniewaz nie ma go na poczatku w 'path'
     for(int i: path)
         cout<<" -> "<<i;
-    cout<<" -> "<< 0 << endl;
+    cout<<" -> "<< 0 << endl;*/
 }
