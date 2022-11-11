@@ -9,7 +9,8 @@
 #include <chrono>
 #include <fstream>
 
-#define filename    "DUPSKO.csv"
+#define filename1    "BRUTE force.csv"
+#define filename2    "BRANCH bound.csv"
 
 void Test::test_BF()
 {
@@ -17,7 +18,7 @@ void Test::test_BF()
     vector<vector<int>> test_m;
 
     fstream file;
-    file.open(filename, ios::out | ios::app);
+    file.open(filename1, ios::out | ios::app);
     file << endl << "BRUTE FORCE "<< endl;
 
     for(int i=0; i<7; i++)
@@ -51,9 +52,8 @@ void Test::test_BF()
             auto t2 = std::chrono::high_resolution_clock::now();
             //czas stop
             avg+= std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
-            // TODO: zapis do CSV (fstream)
-            cout<<"Rozmiar: "<<size<<"    sredni czas:"<<avg<<endl;
         }
+        cout<<"Rozmiar: "<<size<<"    sredni czas:"<<avg<<endl;
         file << avg << endl;
     }
     file.close();
@@ -62,12 +62,17 @@ void Test::test_BF()
 void Test::test_BB()
 {
     //M_Generator m;
+    fstream file;
+    file.open(filename2, ios::out | ios::app);
+    file << endl << "BRANCH BOUND "<< endl;
     vector<vector<int>> test_m;
 
     for(int i=0; i<7; i++)
     {
         float avg=0;
         int size = i+4; // zaczynamy od rozmiaru 4, konczymy na 11
+        file << endl << "ROZMIAR "<<i+4<< endl;
+
         for(int j=0; j<100; j++)
         {
             // generowanie losowej macierzy
@@ -97,6 +102,7 @@ void Test::test_BB()
             avg+=std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
         }
         cout<<"Rozmiar: "<<size<<"    sredni czas:"<<avg<<endl;
+        file << avg << endl;
     }
 }
 
