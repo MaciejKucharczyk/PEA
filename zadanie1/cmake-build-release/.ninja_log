@@ -1,0 +1,14 @@
+# ninja log v5
+1	866	6898786521038006	CMakeFiles/zadanie1.dir/main.cpp.obj	466415ec38911551
+45	870	6898786521038006	CMakeFiles/zadanie1.dir/M_Generator.cpp.obj	9febf9e2e02a202f
+12	1278	6898786525220443	CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj	cf0cdfdfcb208ba
+65	1019	6898786522558674	CMakeFiles/zadanie1.dir/matrix.cpp.obj	939995979c9947f7
+34	1166	6898786524122442	CMakeFiles/zadanie1.dir/Test.cpp.obj	2eb0cf72167c7a3c
+22	1790	6898786530227538	CMakeFiles/zadanie1.dir/Brute_force.cpp.obj	7202a9a059b44cad
+1792	2391	6898786536160053	zadanie1.exe	f54ef1ae53b5f790
+5	594	6898791868653918	zadanie1.exe	a0e2c7069df05151
+4	764	6898806826782593	CMakeFiles/zadanie1.dir/Test.cpp.obj	2eb0cf72167c7a3c
+765	1355	6898806832722305	zadanie1.exe	a0e2c7069df05151
+5	509	6898811495751104	CMakeFiles/zadanie1.dir/main.cpp.obj	466415ec38911551
+17	799	6898811498655128	CMakeFiles/zadanie1.dir/Test.cpp.obj	2eb0cf72167c7a3c
+799	1383	6898811504451301	zadanie1.exe	a0e2c7069df05151

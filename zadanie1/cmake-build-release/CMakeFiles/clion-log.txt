@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2022.1.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1.2/bin/ninja/win/ninja.exe" -G Ninja -S "D:\studia\V sem\pea\zadanie1" -B "D:\studia\V sem\pea\zadanie1\cmake-build-release"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/studia/V sem/pea/zadanie1/cmake-build-release

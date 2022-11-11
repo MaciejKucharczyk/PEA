@@ -1,0 +1,3 @@
+D:/studia/V sem/pea/zadanie1/cmake-build-release/CMakeFiles/zadanie1.dir
+D:/studia/V sem/pea/zadanie1/cmake-build-release/CMakeFiles/edit_cache.dir
+D:/studia/V sem/pea/zadanie1/cmake-build-release/CMakeFiles/rebuild_cache.dir
