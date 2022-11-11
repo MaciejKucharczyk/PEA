@@ -119,17 +119,17 @@ void Branch_Bound::TSP(vector<vector<int>> matrix)
     int start = 0;
     static vector<int> droga;
     droga.resize(size + 1);
-    int galaz = 0;
+    int ogranicznik = 0;
 
     for (int i = 0; i < matrix.size(); i++)
-        galaz += BandB.find_min(matrix, i) + BandB.findSecMin(matrix, i);
+        ogranicznik += BandB.find_min(matrix, i) + BandB.findSecMin(matrix, i);
 
-    galaz = (galaz & 1) ? galaz / 2 + 1 : galaz / 2;
+    ogranicznik = (ogranicznik & 1) ? ogranicznik / 2 + 1 : ogranicznik / 2;
 
     BandB.visited[start] = true;
     BandB.path.push_back(start);
 
-    CheckLevel(matrix, galaz, 0, 1, droga, BandB, BandB.rozwiazanie, BandB.visited, BandB.path);
+    CheckLevel(matrix, ogranicznik, 0, 1, droga, BandB, BandB.rozwiazanie, BandB.visited, BandB.path);
     //BandB.path = droga;
     BandB.print_result(BandB.rozwiazanie, BandB.path);
 }

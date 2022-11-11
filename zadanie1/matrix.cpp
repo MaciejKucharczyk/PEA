@@ -29,6 +29,7 @@ vector<vector<int>> Matrix::return_matrix()
 
 void Matrix::read_from_file(string filename)
 {
+    matrix.clear();
     int val;
     fstream file;
     file.open(filename);

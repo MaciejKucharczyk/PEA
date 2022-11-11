@@ -3,6 +3,7 @@
 #include "Brute_force.h"
 #include "Test.h"
 #include "Branch_Bound.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -11,6 +12,16 @@ using namespace std;
 
 int size_of_m=0;
 string filename;
+
+//-------------------------------------------------------------------------
+long long int read_QPC()
+{
+    LARGE_INTEGER count;
+    QueryPerformanceCounter(&count);
+    return((long long int)count.QuadPart);
+}
+//-------------------------------------------------------------------------
+
 
 void print_options()
 {
@@ -26,6 +37,8 @@ void print_options()
 
 void choose_option(Matrix macierz)
 {
+    long long int frequency, start, elapsed;
+    QueryPerformanceFrequency((LARGE_INTEGER *)&frequency);
     Branch_Bound bb;
     int opt=0;
     do
@@ -41,13 +54,19 @@ void choose_option(Matrix macierz)
                 break;
 
             case 2: // przeglad zupelny BF
+                start = read_QPC();
                 Brute_force::shortest_path(macierz.return_matrix());
+                elapsed = read_QPC() - start;
+                cout<<"czas: "<<  (1000000.0 * elapsed) / frequency <<" [us]"<<endl;
                 break;
 
             case 3:
                 // B & B
                 bb.setSize(size_of_m);
+                start = read_QPC();
                 bb.TSP(macierz.return_matrix());
+                elapsed = read_QPC() - start;
+                cout<<"czas: "<<  (1000000.0 * elapsed) / frequency <<" [us]"<<endl;
                 break;
 
             case 4: //wyswietlanie macierzy
