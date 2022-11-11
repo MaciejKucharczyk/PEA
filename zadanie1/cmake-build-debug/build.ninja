@@ -95,6 +95,7 @@ build CMakeFiles/zadanie1.dir/Test.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/stu
 
 build zadanie1.exe: CXX_EXECUTABLE_LINKER__zadanie1_Debug CMakeFiles/zadanie1.dir/main.cpp.obj CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj CMakeFiles/zadanie1.dir/Brute_force.cpp.obj CMakeFiles/zadanie1.dir/M_Generator.cpp.obj CMakeFiles/zadanie1.dir/matrix.cpp.obj CMakeFiles/zadanie1.dir/Test.cpp.obj
   FLAGS = -static-libstdc++ -static-libgcc -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   POST_BUILD = cd .

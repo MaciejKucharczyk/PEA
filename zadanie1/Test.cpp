@@ -9,7 +9,7 @@
 #include <chrono>
 #include <fstream>
 
-#define filename    "Brute.csv"
+#define filename    "DUPSKO.csv"
 
 void Test::test_BF()
 {
