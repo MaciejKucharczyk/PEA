@@ -5,8 +5,9 @@
 #include "Brute_force.h"
 #include <bits/stdc++.h>
 
-void Brute_force::shortest_path(vector<vector<int>> macierz, int rozmiar)
+void Brute_force::shortest_path(vector<vector<int>> macierz)
 {
+    int rozmiar = macierz.size();
     int start = 0;
     int shortest_path = INT_MAX;
     vector <int> cities;
@@ -28,30 +29,30 @@ void Brute_force::shortest_path(vector<vector<int>> macierz, int rozmiar)
 
         for(int city : cities)
         {
-            if(macierz[j][city]==0)
+            if(macierz[city][j]==0)
             {
                 stop = true;
                 break;
             }
-            koszt+=macierz[j][city];
-           // j = cities[city]; wyrzucal seg fault linie wyzej
+            koszt+=macierz[city][j];
            j = city;
         }
         if(stop)
             continue;
-        koszt+= macierz[j][start];
+        koszt+= macierz[start][j];
 
         if(shortest_path>koszt)
         {
             shortest_path = koszt;
             path = cities;
+            path.push_back(start);
             //for(int city: cities)
-              //  path.push_back(city);
+            //  path.push_back(city);
         }
     }
-   /* cout<<"Koszt najkorzystniejszej drogi: "<<shortest_path<<endl;
+    cout<<"Koszt najkorzystniejszej drogi: "<<shortest_path<<endl;
     cout<<"Droga: "<<endl<<0; //wyswietlamy zero, poniewaz nie ma go na poczatku w 'path'
     for(int i: path)
         cout<<" -> "<<i;
-    cout<<" -> "<< 0 << endl;*/
+    cout<<endl;
 }

@@ -11,7 +11,7 @@ using namespace std;
 
 class Brute_force {
 public:
-    static void shortest_path(vector<vector<int>>, int);
+    static void shortest_path(vector<vector<int>>);
 };
 
 

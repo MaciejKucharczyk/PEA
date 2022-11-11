@@ -48,7 +48,7 @@ void Test::test_BF()
 
             // czas start
             auto t1 = std::chrono::high_resolution_clock::now(); // czas start
-            b.shortest_path(test_m, size);
+            b.shortest_path(test_m);
             auto t2 = std::chrono::high_resolution_clock::now();
             //czas stop
             avg+= std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();

@@ -131,5 +131,5 @@ void Branch_Bound::TSP(vector<vector<int>> matrix)
 
     CheckLevel(matrix, galaz, 0, 1, droga, BandB, BandB.rozwiazanie, BandB.visited, BandB.path);
     //BandB.path = droga;
-    //BandB.print_result(BandB.rozwiazanie, BandB.path);
+    BandB.print_result(BandB.rozwiazanie, BandB.path);
 }

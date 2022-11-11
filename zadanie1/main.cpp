@@ -41,7 +41,7 @@ void choose_option(Matrix macierz)
                 break;
 
             case 2: // przeglad zupelny BF
-                Brute_force::shortest_path(macierz.return_matrix(), size_of_m);
+                Brute_force::shortest_path(macierz.return_matrix());
                 break;
 
             case 3:
