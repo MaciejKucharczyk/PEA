@@ -13,6 +13,8 @@ vector<vector<int>> M_Generator::generate_matrix(int size)
     srand(time(NULL));
     vector<vector<int>> matrix;
     matrix.resize(size);
+    for(int i=0; i<size; i++)
+        matrix[i].resize(size);
     int val=0;
     for(int i=0; i<size; i++)
         for(int j=0; j<size; j++)

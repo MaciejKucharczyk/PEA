@@ -14,7 +14,6 @@ class Test {
 public:
     void test_BF();
     void test_BB();
-    void test_DP();
     void test_test();
 };
 

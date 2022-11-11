@@ -6,10 +6,8 @@
 
 using namespace std;
 
-#define NAME    "tsp_17.txt"
-#define SIZE    17
-
-//Brute_force b;
+#define NAME    "test4.txt"
+#define SIZE    4
 
 void print_options()
 {
@@ -18,14 +16,14 @@ void print_options()
     cout<<"1. Wczytaj dane\n";
     cout<<"2. Przeglad zupelny\n";
     cout<<"3. B & B\n";
-    cout<<"4. DP\n";
-    cout<<"5. Wyswietl macierz\n";
-    cout<<"6. Test\n";
+    cout<<"4. Wyswietl macierz\n";
+    cout<<"5. Test\n";
     cout<<"0. Exit\n";
 }
 
 void choose_option(Matrix macierz)
 {
+    Branch_Bound bb(SIZE);
     int opt=0;
     do
     {
@@ -42,20 +40,15 @@ void choose_option(Matrix macierz)
                 break;
 
             case 3:
-                // B&B
-                Branch_Bound bb;
-                bb.TSP(macierz.return_matrix());
+                // B & B
+               bb.TSP(macierz.return_matrix());
                 break;
 
-            case 4: //dynamiczne
-                cout<<"gowno"<<endl;
-                break;
-
-            case 5: //wyswietlanie macierzy
+            case 4: //wyswietlanie macierzy
                 macierz.print_matrix();
                 break;
 
-            case 6: //test
+            case 5: //test
                 Test t;
                 t.test_test();
                 cout<<"Test zakończony"<<endl;

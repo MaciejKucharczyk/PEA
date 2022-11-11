@@ -51,37 +51,37 @@ build cmake_object_order_depends_target_zadanie1: phony || CMakeFiles/zadanie1.d
 
 build CMakeFiles/zadanie1.dir/main.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/studia/V$ sem/pea/zadanie1/main.cpp || cmake_object_order_depends_target_zadanie1
   DEP_FILE = CMakeFiles\zadanie1.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie1.dir
 
 build CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/studia/V$ sem/pea/zadanie1/Branch_Bound.cpp || cmake_object_order_depends_target_zadanie1
   DEP_FILE = CMakeFiles\zadanie1.dir\Branch_Bound.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie1.dir
 
 build CMakeFiles/zadanie1.dir/Brute_force.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/studia/V$ sem/pea/zadanie1/Brute_force.cpp || cmake_object_order_depends_target_zadanie1
   DEP_FILE = CMakeFiles\zadanie1.dir\Brute_force.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie1.dir
 
 build CMakeFiles/zadanie1.dir/M_Generator.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/studia/V$ sem/pea/zadanie1/M_Generator.cpp || cmake_object_order_depends_target_zadanie1
   DEP_FILE = CMakeFiles\zadanie1.dir\M_Generator.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie1.dir
 
 build CMakeFiles/zadanie1.dir/matrix.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/studia/V$ sem/pea/zadanie1/matrix.cpp || cmake_object_order_depends_target_zadanie1
   DEP_FILE = CMakeFiles\zadanie1.dir\matrix.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie1.dir
 
 build CMakeFiles/zadanie1.dir/Test.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/studia/V$ sem/pea/zadanie1/Test.cpp || cmake_object_order_depends_target_zadanie1
   DEP_FILE = CMakeFiles\zadanie1.dir\Test.cpp.obj.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie1.dir
 
@@ -94,7 +94,7 @@ build CMakeFiles/zadanie1.dir/Test.cpp.obj: CXX_COMPILER__zadanie1_Debug D$:/stu
 # Link the executable zadanie1.exe
 
 build zadanie1.exe: CXX_EXECUTABLE_LINKER__zadanie1_Debug CMakeFiles/zadanie1.dir/main.cpp.obj CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj CMakeFiles/zadanie1.dir/Brute_force.cpp.obj CMakeFiles/zadanie1.dir/M_Generator.cpp.obj CMakeFiles/zadanie1.dir/matrix.cpp.obj CMakeFiles/zadanie1.dir/Test.cpp.obj
-  FLAGS = -g
+  FLAGS = -static-libstdc++ -static-libgcc -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\zadanie1.dir
   POST_BUILD = cd .
