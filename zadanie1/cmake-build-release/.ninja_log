@@ -76,3 +76,6 @@
 16	671	6899089340534803	CMakeFiles/zadanie1.dir/matrix.cpp.obj	939995979c9947f7
 7	1878	6899097736750271	CMakeFiles/zadanie1.dir/main.cpp.obj	466415ec38911551
 1881	2477	6899097742564380	zadanie1.exe	a0e2c7069df05151
+7	1877	6900471627949345	CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj	cf0cdfdfcb208ba
+24	2201	6900471631250650	CMakeFiles/zadanie1.dir/Brute_force.cpp.obj	7202a9a059b44cad
+2201	2799	6900471637184450	zadanie1.exe	a0e2c7069df05151

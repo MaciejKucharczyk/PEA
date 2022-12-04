@@ -20,3 +20,10 @@
 1296	1980	6898983842788693	zadanie1.exe	299dbc59da6c393b
 6	1655	6899016908239326	CMakeFiles/zadanie1.dir/Brute_force.cpp.obj	293b465fdfc30e6a
 1655	2447	6899016916215501	zadanie1.exe	299dbc59da6c393b
+38	1227	6899865247457728	CMakeFiles/zadanie1.dir/matrix.cpp.obj	4c52cc71607f3ee8
+23	1307	6899865248217706	CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj	899e22e09b72dc0b
+6	2579	6899865260983766	CMakeFiles/zadanie1.dir/main.cpp.obj	12296859aea52b2e
+2583	3467	6899865269812970	zadanie1.exe	299dbc59da6c393b
+20	894	6900471556074925	CMakeFiles/zadanie1.dir/Branch_Bound.cpp.obj	899e22e09b72dc0b
+6	1609	6900471563211935	CMakeFiles/zadanie1.dir/Brute_force.cpp.obj	293b465fdfc30e6a
+1610	2325	6900471570296550	zadanie1.exe	299dbc59da6c393b
