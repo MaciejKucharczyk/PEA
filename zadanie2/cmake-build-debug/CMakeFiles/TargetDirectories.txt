@@ -1,0 +1,3 @@
+D:/studia/V sem/pea/zadanie2/cmake-build-debug/CMakeFiles/zadanie2.dir
+D:/studia/V sem/pea/zadanie2/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/studia/V sem/pea/zadanie2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
