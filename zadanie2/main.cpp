@@ -35,25 +35,29 @@ void choose_option(Matrix macierz)
                 break;
 
             case 2: // kryterium stopu
-               // Brute_force::shortest_path(macierz.return_matrix(), SIZE);
+                cout<<"Wprowadz kryterium stopu: \n";
+                cin>>t.stop;
                 break;
 
             case 3: // dysweryfikacja
                // bb.TSP(macierz.return_matrix());
                 break;
 
-            case 4: //wyswietlanie macierzy + test
+            case 4: //wyswietlanie macierzy
+                cout<<"Macierz:\n";
                 macierz.print_matrix();
                 break;
 
             case 5: // uruchom algorytm
                 t.TSP(macierz.return_matrix());
-                //cout<<""<<endl;
                 break;
 
-            case 6: // wyswietl + test
-                cout<<"Macierz:\n";
-                macierz.print_matrix();
+            case 6: // test
+                NAME = "tsp_17.txt";
+                macierz.read_from_file(NAME);
+                t.stop = 50;
+                cout<<"File: "<<NAME<<endl<<"Stop at: "<<t.stop<<endl;
+                t.TSP(macierz.return_matrix());
                 break;
 
             default:

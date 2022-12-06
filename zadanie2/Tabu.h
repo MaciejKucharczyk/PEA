@@ -8,21 +8,13 @@
 
 using namespace std;
 
-/*struct TMove{
-    int K, start, end;
-};*/
-
-
 class Tabu {
-private:
-    //vector<vector<int>> tabu_list;
 public:
+    int stop=0;
     Tabu();
     ~Tabu();
     vector<vector<int>> tabu_list;
     void TSP(vector<vector<int>> matrix);
-
-    vector<int> Rand_solution(vector<int> initial, int rozmiar);
 
     void Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol);
 
@@ -30,7 +22,7 @@ public:
 
     void Create_tabuList(int rozmiar);
 
-    int Silnia(int val);
+    void SetStop(int s);
 };
 
 

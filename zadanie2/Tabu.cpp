@@ -9,11 +9,15 @@
 
 using namespace std;
 
-Tabu::Tabu() {
-
-}
+Tabu::Tabu() {}
 
 Tabu::~Tabu()= default;
+
+void Tabu::SetStop(int s)
+{
+    if(stop==0)
+        stop = s;
+}
 
 void Tabu::Create_tabuList(int rozmiar)
 {
@@ -22,7 +26,7 @@ void Tabu::Create_tabuList(int rozmiar)
     {
         tabu_list.resize(rozmiar);
         for(int j=0; j<rozmiar; j++)
-            tabu_list[i].resize(rozmiar);
+            tabu_list[i].resize(i+1);
     }
 }
 
@@ -46,15 +50,7 @@ void Tabu::Update_tabulist(int x, int y, int rozmiar)
             if(tabu_list[i][j]>0)
                 tabu_list[i][j]--;
 
-    tabu_list[x][y]= rozmiar/2;
-}
-
-int Tabu::Silnia(int val)
-{
-    int result = 1;
-    for(int i = val; i>1; i--)
-        result+=i;
-    return result;
+    tabu_list[x][y]= rozmiar;
 }
 
 void Tabu::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol)
@@ -72,17 +68,11 @@ void Tabu::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol)
                 curr_sol[i]=curr_sol[j];
                 curr_sol[j] = buff;
                 int cost = M_val(curr_sol, m);
-                if(cost == -1)
-                {
-                    buff = curr_sol[i];
-                    curr_sol[i] = curr_sol[j];
-                    curr_sol[j] = buff;
-                    break;
-                }
-               if(cost<best_cost)
+               if(cost<=best_cost)
                 {
                     Update_tabulist(i,j, rozmiar);
                     cout<<"zamiana "<<i<<" "<<j<<endl;
+                    best_cost = cost;
                     continue;
                 }
                 else
@@ -92,22 +82,7 @@ void Tabu::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol)
                     curr_sol[j] = buff;
                 }
             }
-            else
-                continue;
         }
-}
-
-vector<int> Tabu::Rand_solution(vector<int> initial, int rozmiar)
-{
-    int koniec = Silnia(rozmiar-1);
-    int licznik=0;
-    while(next_permutation(initial.begin(), initial.end()))
-    {
-        if(licznik == koniec)
-            return initial;
-        licznik++;
-    }
-    return initial;
 }
 
 void Tabu::TSP(vector<vector<int>> matrix)
@@ -129,11 +104,13 @@ void Tabu::TSP(vector<vector<int>> matrix)
     int best_cost, curr_cost; //best -> koszt najkorzystniejszej sciezki, curr -> koszt sciezki badanej
     //curr_sol = Rand_solution(cities, rozmiar);
     curr_sol = cities;
-    random_shuffle(curr_sol.begin(), curr_sol.end());
+    shuffle(curr_sol.begin(), curr_sol.end(), std::mt19937(std::random_device()()));
     best_cost = M_val(curr_sol, matrix);
     best_sol = curr_sol;
+    //kryterium stopu
+    SetStop(rozmiar); // jezeli kryterium nie zostalo wprowadzone w menu, to domyslna wartoscia jest 'rozmiar'
 
-    int licznik=rozmiar;
+    int licznik=stop;
     while(licznik!=0)
     {
         Swap(rozmiar, matrix, (vector<int> &) curr_sol);
@@ -142,9 +119,10 @@ void Tabu::TSP(vector<vector<int>> matrix)
         {
             best_cost = curr_cost;
             best_sol = curr_sol;
+            licznik=stop;
         }
         else
-            licznik--;
+            licznik--; // zmniejszamy licznik, jezeli "utknelismy" na jednym rozwiazaniu
     }
 
     cout<<"Sciezka: \n";
