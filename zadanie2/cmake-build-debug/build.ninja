@@ -67,6 +67,12 @@ build CMakeFiles/zadanie2.dir/Tabu.cpp.obj: CXX_COMPILER__zadanie2_Debug D$:/stu
   OBJECT_DIR = CMakeFiles\zadanie2.dir
   OBJECT_FILE_DIR = CMakeFiles\zadanie2.dir
 
+build CMakeFiles/zadanie2.dir/Wyzarzanie.cpp.obj: CXX_COMPILER__zadanie2_Debug D$:/studia/V$ sem/pea/zadanie2/Wyzarzanie.cpp || cmake_object_order_depends_target_zadanie2
+  DEP_FILE = CMakeFiles\zadanie2.dir\Wyzarzanie.cpp.obj.d
+  FLAGS = -static-libstdc++ -static-libgcc -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\zadanie2.dir
+  OBJECT_FILE_DIR = CMakeFiles\zadanie2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target zadanie2
@@ -75,7 +81,7 @@ build CMakeFiles/zadanie2.dir/Tabu.cpp.obj: CXX_COMPILER__zadanie2_Debug D$:/stu
 #############################################
 # Link the executable zadanie2.exe
 
-build zadanie2.exe: CXX_EXECUTABLE_LINKER__zadanie2_Debug CMakeFiles/zadanie2.dir/main.cpp.obj CMakeFiles/zadanie2.dir/matrix.cpp.obj CMakeFiles/zadanie2.dir/Tabu.cpp.obj
+build zadanie2.exe: CXX_EXECUTABLE_LINKER__zadanie2_Debug CMakeFiles/zadanie2.dir/main.cpp.obj CMakeFiles/zadanie2.dir/matrix.cpp.obj CMakeFiles/zadanie2.dir/Tabu.cpp.obj CMakeFiles/zadanie2.dir/Wyzarzanie.cpp.obj
   FLAGS = -static-libstdc++ -static-libgcc -g
   LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

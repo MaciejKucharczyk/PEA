@@ -1,6 +1,7 @@
 #include <iostream>
 #include "matrix.h"
 #include "Tabu.h"
+#include "Wyzarzanie.h"
 
 using namespace std;
 
@@ -17,10 +18,37 @@ void print_options()
     cout<<"0. Exit\n";
 }
 
+void choose_alg(Matrix macierz, Tabu t, Wyzarzanie w)
+{
+    int op = 0;
+    do
+    {
+        cout<<"=== WYBIERZ ALGORYTM ==="<<endl;
+        cout<<"1. Symulowane wyzarzanie"<<endl;
+        cout<<"2. Tabu search"<<endl;
+        cout<<"3. Wyjscie"<<endl;
+        cin>>op;
+        switch(op)
+        {
+            case 1: // SA
+                w.TSP(macierz.return_matrix());
+                break;
+            case 2: // tabu search
+                t.TSP(macierz.return_matrix());
+                break;
+            default:
+                cout<<"Podano zly numer opcji"<<endl;
+                break;
+        }
+    }
+    while(op!=0);
+}
+
 void choose_option(Matrix macierz)
 {
     int opt=0;
     Tabu t;
+    Wyzarzanie w;
     do
     {
         string NAME;
@@ -41,6 +69,7 @@ void choose_option(Matrix macierz)
 
             case 3: // dysweryfikacja
                // bb.TSP(macierz.return_matrix());
+               cout<<"Na razie pusto...\n";
                 break;
 
             case 4: //wyswietlanie macierzy
@@ -49,7 +78,7 @@ void choose_option(Matrix macierz)
                 break;
 
             case 5: // uruchom algorytm
-                t.TSP(macierz.return_matrix());
+                choose_alg(macierz, t, w);
                 break;
 
             case 6: // test
