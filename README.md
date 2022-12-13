@@ -8,7 +8,7 @@ Zadanie 1: rozwiązanie problemu Komiwojażera (TSP) metodami:
   - tabu search
   - symulowane wyżarzanie
   
-*Gotowy projekt w gałęzi Main, *
+*Gotowy projekt w gałęzi Main,*
 *Master jako gałąź testowa*
 
 Task 1: Find the best solution for Travelling Salesman Problem with these algorithms:
