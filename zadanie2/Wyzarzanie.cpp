@@ -15,8 +15,8 @@ int Wyzarzanie::M_val(vector<int> path, vector<vector<int>> m)
     int koszt = 0;
     for(int city=0; city<path.size(); city++)
     {
-        koszt += m[j][city];
-        j=city;
+        koszt += m[j][path[city]];  // TODO: sprawdzić, czy tu nie ma seq faulta czasem... odkąd ta linijka jest to dziwne rzeczy sie dzieją
+        j=path[city];
     }
     koszt+=m[j][0];
     return koszt;

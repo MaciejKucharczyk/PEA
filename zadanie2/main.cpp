@@ -7,8 +7,8 @@ using namespace std;
 
 void print_options()
 {
-    cout<<"=== PROBLEM KOMIWOJAZERA ===\n";
-    cout<<"Wybierz algorytm\n";
+    cout<<"===== PROBLEM KOMIWOJAZERA =====\n";
+    cout<<" = Wybierz czynnosc =\n";
     cout<<"1. Wczytaj dane\n";
     cout<<"2. Wprowadz kryterium stopu\n";
     cout<<"3. Wylacz / wlacz dysweryfikacje\n"; // to chyba opduscimy

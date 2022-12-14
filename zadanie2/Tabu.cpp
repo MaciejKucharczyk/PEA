@@ -21,7 +21,7 @@ void Tabu::SetStop(int s)
 
 void Tabu::Create_tabuList(int rozmiar)
 {
-    tabu_list.clear();
+    //tabu_list.clear();
     for(int i=0; i<rozmiar; i++)
     {
         tabu_list.resize(rozmiar);
@@ -30,14 +30,14 @@ void Tabu::Create_tabuList(int rozmiar)
     }
 }
 
-int M_val(vector<int> path, vector<vector<int>> m)
+int Tabu::M_val(vector<int> &path, vector<vector<int>> &m)
 {
     int j = 0;
     int koszt = 0;
     for(int city=0; city<path.size(); city++)
     {
-        koszt += m[j][city];
-        j=city;
+        koszt += m[j][path[city]];
+        j=path[city];
     }
     koszt+=m[j][0];
     return koszt;
@@ -50,39 +50,65 @@ void Tabu::Update_tabulist(int x, int y, int rozmiar)
             if(tabu_list[i][j]>0)
                 tabu_list[i][j]--;
 
-    tabu_list[x][y]= rozmiar;
+    if(x>y)
+        tabu_list[x][y]= rozmiar;
+    else
+        tabu_list[y][x] = rozmiar;
 }
 
-void Tabu::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol)
+bool Tabu::Swap(int rozmiar, vector<vector<int>> &m, vector<int> &curr_sol, int best_cost)
 {
-    int best_cost = M_val(curr_sol, m);
-    for(int i=0; i<curr_sol.size(); i++)
-        for(int j=0; j<curr_sol.size(); j++)
+   int initial_best = best_cost;
+   for (int i = 0; i < curr_sol.size(); i++)
+        for (int j = 0; j < curr_sol.size(); j++)
         {
-            if(i==j)
+            if (i == j)
                 continue;
 
-            if(tabu_list[i][j]==0)
+            if(i>j)
             {
-                int buff=curr_sol[i];
-                curr_sol[i]=curr_sol[j];
-                curr_sol[j] = buff;
-                int cost = M_val(curr_sol, m);
-               if(cost<=best_cost)
+                if (tabu_list[i][j] == 0)  // TODO: obserwuj to miejsce
                 {
-                    Update_tabulist(i,j, rozmiar);
-                    cout<<"zamiana "<<i<<" "<<j<<endl;
-                    best_cost = cost;
-                    continue;
-                }
-                else
-                {
-                    buff = curr_sol[i];
-                    curr_sol[i] = curr_sol[j];
-                    curr_sol[j] = buff;
+                    int cost = M_val(curr_sol, m);
+                    if(best_cost>cost)
+                    {
+                        Update_tabulist(i, j, rozmiar);
+                        best_cost = cost;
+                        //return true;
+                    }
+                    else
+                    {
+                        int buff=curr_sol[i];
+                        curr_sol[i]=curr_sol[j];
+                        curr_sol[j] = buff;
+                        //return false;
+                    }
                 }
             }
+            else
+                if (tabu_list[j][i] == 0)  // TODO: obserwuj to miejsce
+                {
+                    int cost = M_val(curr_sol, m);
+                    if(best_cost>cost)
+                    {
+                        Update_tabulist(i, j, rozmiar);
+                        best_cost = cost;
+                        //return true;
+                    }
+                    else
+                    {
+                        int buff=curr_sol[i];
+                        curr_sol[i]=curr_sol[j];
+                        curr_sol[j] = buff;
+                        //return false;
+                    }
+                }
+
         }
+   if(initial_best>best_cost) // jezeli znaleziono nizszy koszt, to zwracamy true, w p.p false
+       return true;
+   else
+       return false;
 }
 
 void Tabu::TSP(vector<vector<int>> matrix)
@@ -102,7 +128,7 @@ void Tabu::TSP(vector<vector<int>> matrix)
     best_sol.resize(rozmiar);
     curr_sol.resize(rozmiar);
     int best_cost, curr_cost; //best -> koszt najkorzystniejszej sciezki, curr -> koszt sciezki badanej
-    //curr_sol = Rand_solution(cities, rozmiar);
+    // zapisujemy miasta w kolejnosci do sciezki, a potem losujemy miasta w sciezce
     curr_sol = cities;
     shuffle(curr_sol.begin(), curr_sol.end(), std::mt19937(std::random_device()()));
     best_cost = M_val(curr_sol, matrix);
@@ -113,16 +139,20 @@ void Tabu::TSP(vector<vector<int>> matrix)
     int licznik=stop;
     while(licznik!=0)
     {
-        Swap(rozmiar, matrix, (vector<int> &) curr_sol);
-        curr_cost = M_val(curr_sol, matrix);
-        if(curr_cost<best_cost)
-        {
-            best_cost = curr_cost;
-            best_sol = curr_sol;
-            licznik=stop;
-        }
-        else
-            licznik--; // zmniejszamy licznik, jezeli "utknelismy" na jednym rozwiazaniu
+       bool is_changed = Swap(rozmiar, matrix, curr_sol, best_cost);
+       curr_cost = M_val(curr_sol, matrix);
+       // jezeli znaleziono lepsza sciezke, to zapisujemy ją
+       if(is_changed)
+       {
+           best_sol = curr_sol;
+           best_cost = M_val(best_sol, matrix);
+           licznik = stop; // zwiększamy licznik do wartosci pocz. kontynuujemy poszukiwanie
+       }
+       else
+       {
+           licznik--; // zmniejszamy licznik, jezeli poszukiwanie zajmie za duzo iteracji,
+                    // to zwracamy najlepsze znalezione rozwiazanie
+       }
     }
 
     cout<<"Sciezka: \n";
