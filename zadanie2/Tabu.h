@@ -10,7 +10,7 @@ using namespace std;
 
 class Tabu {
 public:
-    int stop=0;
+    int stop=5;
     Tabu();
     ~Tabu();
     vector<vector<int>> tabu_list;
@@ -18,13 +18,15 @@ public:
 
     bool Swap(int rozmiar, vector<vector<int>> &m, vector<int> &curr_sol, int best_sol);
 
-    void Update_tabulist(int x, int y, int rozmiar);
+    void Update_tabulist();
+
+    void Add_to_tabulist(int x, int y, int rozmiar);
 
     void Create_tabuList(int rozmiar);
 
-    void SetStop(int s);
-
     int M_val(vector<int> &path, vector<vector<int>> &m);
+
+    long long int read_QPC();
 };
 
 

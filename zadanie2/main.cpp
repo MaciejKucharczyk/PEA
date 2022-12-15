@@ -64,6 +64,7 @@ void choose_option(Matrix macierz)
             case 2: // kryterium stopu
                 cout<<"Wprowadz kryterium stopu: [s]\n";
                 cin>>t.stop;
+                w.stop_SA = t.stop;
                 break;
 
             case 3: // dysweryfikacja
