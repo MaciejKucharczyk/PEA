@@ -16,7 +16,7 @@ public:
 
     void TSP(vector<vector<int>> matrix);
 
-    void Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol, int t);
+    bool Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol, double t, int best_cost);
 };
 
 

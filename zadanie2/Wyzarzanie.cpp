@@ -15,17 +15,18 @@ int Wyzarzanie::M_val(vector<int> path, vector<vector<int>> m)
     int koszt = 0;
     for(int city=0; city<path.size(); city++)
     {
-        koszt += m[j][path[city]];  // TODO: sprawdzić, czy tu nie ma seq faulta czasem... odkąd ta linijka jest to dziwne rzeczy sie dzieją
+        koszt += m[j][path[city]];
         j=path[city];
     }
     koszt+=m[j][0];
     return koszt;
 }
 
-void Wyzarzanie::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol, int t)
+bool Wyzarzanie::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol, double t, int best_cost)
 {
     srand(time(NULL));
-    int best_cost = M_val(curr_sol, m);
+    //int best_cost = M_val(curr_sol, m);
+    int initial_best = best_cost;
     for(int i=0; i<curr_sol.size(); i++)
         for(int j=0; j<curr_sol.size(); j++)
         {
@@ -35,20 +36,20 @@ void Wyzarzanie::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol,
             int buff=curr_sol[i];
             curr_sol[i]=curr_sol[j];
             curr_sol[j] = buff;
+
             int cost = M_val(curr_sol, m);
-            if(cost<=best_cost)
+            if(best_cost>cost)
             {
-                cout<<"zamiana "<<i<<" "<<j<<endl;
                 best_cost = cost;
-                continue;
+                //cout<<"zamiana\n";
             }
             else
             {
-                double s = ((double) rand() / (RAND_MAX)) + 1;
+                double s = ((double) rand() / (RAND_MAX));
                 double pr = exp((best_cost-cost)/t);
                 if(s<pr)
                 {
-                    cout<<"niekorzystna zamiana "<<i<<" "<<j<<endl;
+                    //cout<<"niekorzystna zamiana\n";
                     best_cost = cost;
                     continue;
                 }
@@ -60,6 +61,10 @@ void Wyzarzanie::Swap(int rozmiar, vector<vector<int>> m, vector<int> &curr_sol,
                 }
             }
         }
+    if(initial_best>best_cost) // jezeli znaleziono nizszy koszt, to zwracamy true, w p.p false
+        return true;
+    else
+        return false;
 }
 
 
@@ -81,7 +86,6 @@ void Wyzarzanie::TSP(vector<vector<int>> matrix)
     best_sol.resize(rozmiar);
     curr_sol.resize(rozmiar);
     int best_cost, curr_cost; //best -> koszt najkorzystniejszej sciezki, curr -> koszt sciezki badanej
-    //curr_sol = Rand_solution(cities, rozmiar);
     curr_sol = cities;
     shuffle(curr_sol.begin(), curr_sol.end(), std::mt19937(std::random_device()()));
     best_cost = M_val(curr_sol, matrix);
@@ -93,19 +97,22 @@ void Wyzarzanie::TSP(vector<vector<int>> matrix)
     int licznik=stop;
     while(licznik!=0)
     {
-        Swap(rozmiar, matrix, (vector<int> &) curr_sol, T);
+        bool is_changed = Swap(rozmiar, matrix, curr_sol, T, best_cost);
         curr_cost = M_val(curr_sol, matrix);
-        if(curr_cost<best_cost)
+        // jezeli znaleziono lepsza sciezke, to zapisujemy ją
+        if(is_changed)
         {
             best_cost = curr_cost;
             best_sol = curr_sol;
-            licznik=stop;
+            licznik = stop; // zwiększamy licznik do wartosci pocz. kontynuujemy poszukiwanie
         }
         else
-            licznik--; // zmniejszamy licznik, jezeli "utknelismy" na jednym rozwiazaniu
-
+        {
+            licznik--; // zmniejszamy licznik, jezeli poszukiwanie zajmie za duzo iteracji,
+            // to zwracamy najlepsze znalezione rozwiazanie
             double dT = pow(a, stop-licznik)*T;
             T-=dT;
+        }
     }
 
     cout<<"Sciezka: \n";

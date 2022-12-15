@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 #include "matrix.h"
 #include "Tabu.h"
 #include "Wyzarzanie.h"
@@ -11,10 +12,9 @@ void print_options()
     cout<<" = Wybierz czynnosc =\n";
     cout<<"1. Wczytaj dane\n";
     cout<<"2. Wprowadz kryterium stopu\n";
-    cout<<"3. Wylacz / wlacz dysweryfikacje\n"; // to chyba opduscimy
-    cout<<"4. Wybor sasiedztwa\n";
+    cout<<"3. Wylacz / wlacz dysweryfikacje\n"; // TODO: usun to bo tego nie ma :(
+    cout<<"4. Wyswietlanie maceirzy\n";
     cout<<"5. Uruchom algorytm\n";
-    cout<<"6. Wyswietl macierz + Test\n";
     cout<<"0. Exit\n";
 }
 
@@ -63,7 +63,7 @@ void choose_option(Matrix macierz)
                 break;
 
             case 2: // kryterium stopu
-                cout<<"Wprowadz kryterium stopu: \n";
+                cout<<"Wprowadz kryterium stopu: [s]\n";
                 cin>>t.stop;
                 break;
 
@@ -79,14 +79,6 @@ void choose_option(Matrix macierz)
 
             case 5: // uruchom algorytm
                 choose_alg(macierz, t, w);
-                break;
-
-            case 6: // test
-                NAME = "tsp_17.txt";
-                macierz.read_from_file(NAME);
-                t.stop = 50;
-                cout<<"File: "<<NAME<<endl<<"Stop at: "<<t.stop<<endl;
-                t.TSP(macierz.return_matrix());
                 break;
 
             default:

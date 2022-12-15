@@ -19,6 +19,7 @@ void Tabu::SetStop(int s)
         stop = s;
 }
 
+
 void Tabu::Create_tabuList(int rozmiar)
 {
     //tabu_list.clear();
@@ -65,9 +66,13 @@ bool Tabu::Swap(int rozmiar, vector<vector<int>> &m, vector<int> &curr_sol, int 
             if (i == j)
                 continue;
 
+            int buff=curr_sol[i];
+            curr_sol[i]=curr_sol[j];
+            curr_sol[j] = buff;
+
             if(i>j)
             {
-                if (tabu_list[i][j] == 0)  // TODO: obserwuj to miejsce
+                if (tabu_list[i][j] == 0)
                 {
                     int cost = M_val(curr_sol, m);
                     if(best_cost>cost)
@@ -78,7 +83,7 @@ bool Tabu::Swap(int rozmiar, vector<vector<int>> &m, vector<int> &curr_sol, int 
                     }
                     else
                     {
-                        int buff=curr_sol[i];
+                        buff=curr_sol[i];
                         curr_sol[i]=curr_sol[j];
                         curr_sol[j] = buff;
                         //return false;
@@ -86,7 +91,7 @@ bool Tabu::Swap(int rozmiar, vector<vector<int>> &m, vector<int> &curr_sol, int 
                 }
             }
             else
-                if (tabu_list[j][i] == 0)  // TODO: obserwuj to miejsce
+                if (tabu_list[j][i] == 0)
                 {
                     int cost = M_val(curr_sol, m);
                     if(best_cost>cost)
@@ -97,7 +102,7 @@ bool Tabu::Swap(int rozmiar, vector<vector<int>> &m, vector<int> &curr_sol, int 
                     }
                     else
                     {
-                        int buff=curr_sol[i];
+                        buff=curr_sol[i];
                         curr_sol[i]=curr_sol[j];
                         curr_sol[j] = buff;
                         //return false;
@@ -136,10 +141,11 @@ void Tabu::TSP(vector<vector<int>> matrix)
     //kryterium stopu
     SetStop(rozmiar); // jezeli kryterium nie zostalo wprowadzone w menu, to domyslna wartoscia jest 'rozmiar'
 
-    int licznik=stop;
+    int licznik=stop*stop;
+
     while(licznik!=0)
     {
-       bool is_changed = Swap(rozmiar, matrix, curr_sol, best_cost);
+        bool is_changed = Swap(rozmiar, matrix, curr_sol, best_cost);
        curr_cost = M_val(curr_sol, matrix);
        // jezeli znaleziono lepsza sciezke, to zapisujemy ją
        if(is_changed)
