@@ -141,7 +141,7 @@ void Tabu::TSP(vector<vector<int>> matrix)
     //kryterium stopu
     SetStop(rozmiar); // jezeli kryterium nie zostalo wprowadzone w menu, to domyslna wartoscia jest 'rozmiar'
 
-    int licznik=stop*stop;
+    int licznik=int(pow(pow(rozmiar*rozmiar,stop),stop));
 
     while(licznik!=0)
     {

@@ -12,9 +12,8 @@ void print_options()
     cout<<" = Wybierz czynnosc =\n";
     cout<<"1. Wczytaj dane\n";
     cout<<"2. Wprowadz kryterium stopu\n";
-    cout<<"3. Wylacz / wlacz dysweryfikacje\n"; // TODO: usun to bo tego nie ma :(
-    cout<<"4. Wyswietlanie maceirzy\n";
-    cout<<"5. Uruchom algorytm\n";
+    cout<<"3. Wyswietlanie macierzy\n";
+    cout<<"4. Uruchom algorytm\n";
     cout<<"0. Exit\n";
 }
 
@@ -68,16 +67,11 @@ void choose_option(Matrix macierz)
                 break;
 
             case 3: // dysweryfikacja
-               // bb.TSP(macierz.return_matrix());
-               cout<<"Na razie pusto...\n";
-                break;
-
-            case 4: //wyswietlanie macierzy
                 cout<<"Macierz:\n";
                 macierz.print_matrix();
                 break;
 
-            case 5: // uruchom algorytm
+            case 4: //wyswietlanie macierzy
                 choose_alg(macierz, t, w);
                 break;
 
